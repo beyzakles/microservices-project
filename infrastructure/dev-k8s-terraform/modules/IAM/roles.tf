@@ -70,18 +70,10 @@ resource "aws_iam_policy_attachment" "attach_for_worker" {
 
 resource "aws_iam_instance_profile" "profile_for_master-beyza" {
   name  = "profile_for_master-beyza"
-  role = aws_iam_role.role_for_master-beyza.name
+  role = aws_iam_role.role_for_master.name
 }
 
 resource "aws_iam_instance_profile" "profile_for_worker-beyza" {
   name  = "profile_for_worker-beyza"
-  role = aws_iam_role.role_for_worker-beyza.name
-}
-
-output master_profile_name {
-  value       = aws_iam_instance_profile.profile_for_master.name
-}
-
-output worker_profile_name {
-  value       = aws_iam_instance_profile.profile_for_worker.name
+  role = aws_iam_role.role_for_worker.name
 }
